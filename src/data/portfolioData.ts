@@ -33,179 +33,173 @@ export const PERSONAL_INFO = {
 
 export const PROJECTS: Project[] = [
   {
-    id: "fraud-detection",
-    title: "AI-Powered Financial Fraud Detection",
+    id: "autonomous-data-analyst",
+    title: "Autonomous Data Analyst",
+    liveDemoUrl: "https://ada-frontend-fg76.onrender.com/",
     category: "AI / ML",
-    tagline: "Machine learning system for real-time anomaly detection and fraud classification in high-volume transaction streams.",
-    description: "An intelligent fraud detection system designed to identify suspicious financial transactions using machine learning and data-driven analysis.",
-    fullOverview: "Financial fraud imposes billions of dollars in losses annually. This project establishes an end-to-end machine learning pipeline that handles extreme class imbalance, extracts high-signal behavioral features, and classifies anomalous transactions with high precision and low false positives.",
+    tagline: "AI-powered data analysis system designed to automate data exploration and analytical workflows.",
+    description: "An autonomous AI project focused on turning data analysis tasks into an intelligent, tool-driven workflow.",
+    fullOverview: "An AI-focused project demonstrating autonomous data analysis workflows and intelligent interaction with data.",
     highlights: [
-      "Addressed severe class imbalance (0.17% fraud) using SMOTE and stratified cross-validation",
-      "Engineered robust temporal and transactional features (velocity, amount deviation, time-since-last-txn)",
-      "Trained and benchmarked multiple algorithms: XGBoost, Random Forest, Logistic Regression, and Isolation Forests",
-      "Evaluated models using Precision-Recall AUC (PR-AUC), ROC-AUC (0.96), and F1-Score to prioritize recall without overwhelming fraud analysts"
+      "Autonomous data analysis workflow",
+      "AI-driven analytical reasoning",
+      "Designed as an intelligent data analysis application"
     ],
-    technologies: ["Python", "Scikit-Learn", "XGBoost", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
+    technologies: ["Python", "AI", "Data Analysis", "Machine Learning"],
     metrics: [
-      { label: "ROC-AUC", value: "0.96" },
-      { label: "PR-AUC", value: "0.89" },
-      { label: "Recall Rate", value: "92.4%" }
+      { label: "Project Type", value: "AI Agent" },
+      { label: "Deployment", value: "Live" }
     ],
     architectureSummary: [
-      "Data Ingestion & Cleaning",
-      "Feature Scaling (RobustScaler)",
-      "SMOTE Resampling",
-      "Ensemble Classification (XGBoost)",
-      "Threshold Tuning for Optimal Business Cost"
+      "Data Input",
+      "AI Reasoning",
+      "Analysis Workflow",
+      "Generated Insights"
     ],
-    keyContribution: "Designed end-to-end data preprocessing pipeline, executed extensive feature importance analysis, and achieved 0.96 ROC-AUC on imbalanced financial datasets.",
-    githubUrl: "https://github.com/syamkumar9745",
-    badge: "Machine Learning"
+    keyContribution: "Built an AI-focused system for automating data analysis workflows.",
+    githubUrl: "https://github.com/syamkumar9745/autonomous-data-analyst",
+    badge: "AI Agent"
+  },
+  {
+    id: "stock-research-agent",
+    title: "Stock Research Agent",
+    category: "AI / ML",
+    tagline: "AI agent project focused on automating stock research and financial information analysis.",
+    description: "AI agent designed to support structured stock research through automated information analysis.",
+    fullOverview: "AI-focused research agent demonstrating intelligent workflows for financial research and analysis.",
+    highlights: [
+      "AI-powered research workflow",
+      "Automated financial information analysis",
+      "Agent-oriented application architecture"
+    ],
+    technologies: ["Python", "AI Agents", "LLMs", "Financial Research"],
+    metrics: [
+      { label: "Project Type", value: "AI Agent" },
+      { label: "Status", value: "GitHub" }
+    ],
+    architectureSummary: [
+      "Research Input",
+      "Information Processing",
+      "AI Reasoning",
+      "Research Output"
+    ],
+    keyContribution: "Developed an AI-agent project focused on automating structured stock research workflows.",
+    githubUrl: "https://github.com/syamkumar9745/stock-research-agent",
+    badge: "AI Agent"
   },
   {
     id: "fintrack-ai",
-    title: "FinTrack AI — Predictive Financial Intelligence",
-    category: "Full-Stack",
-    tagline: "Intelligent financial analytics system with automated spending classification and predictive cash flow forecasting.",
-    description: "An AI-oriented financial management architecture focused on automated transaction categorization, trend detection, and expense forecasting.",
-    fullOverview: "FinTrack AI demonstrates how machine learning heuristics and automated categorization rules transform unformatted bank transactions into actionable budget insights, predictive savings goals, and cash flow projections.",
+    title: "FinTrack AI ? Personal Finance Analytics",
+    category: "AI / ML",
+    tagline: "AI-powered personal finance platform combining analytics, machine learning, dashboards, and financial reporting.",
+    description: "Python-based personal finance analytics platform for transaction management, financial insights, visualization, reporting, and expense prediction.",
+    fullOverview: "A financial analytics application combining transaction management, data analysis, interactive dashboards, report generation, and machine learning-based expense prediction.",
     highlights: [
-      "Designed clean modular user interface with interactive expense tracking charts",
-      "Integrated automated transaction categorization algorithms for recurring subscription detection",
-      "Engineered monthly budget forecasting based on historical expenditure velocity",
-      "Structured lightweight client-side state management for instantaneous UI feedback"
+      "Financial analytics for income, expenses, cash flow, savings, and spending categories",
+      "Machine learning workflow for expense prediction using feature engineering and Linear Regression",
+      "Interactive Streamlit dashboards for financial visualization",
+      "Automated CSV, Excel, and PDF financial reports"
     ],
-    technologies: ["React", "TypeScript", "Tailwind CSS", "Chart.js", "Node.js", "Express.js"],
+    technologies: ["Python", "Pandas", "NumPy", "Scikit-Learn", "Streamlit", "Plotly"],
     metrics: [
-      { label: "Categorization Accuracy", value: "94%" },
-      { label: "Latency", value: "< 50ms" },
-      { label: "Architecture", value: "Modular" }
+      { label: "ML Model", value: "Linear Regression" },
+      { label: "Dashboard", value: "Streamlit" },
+      { label: "Reports", value: "CSV / Excel / PDF" }
     ],
     architectureSummary: [
-      "Transaction Parsing & Hygiene Engine",
-      "Rule-Based & ML Classification Pipeline",
-      "Predictive Budget Time-Series Forecasting",
-      "Interactive Real-time Visual Dashboard"
+      "Transaction Collection",
+      "Data Cleaning & Feature Engineering",
+      "Financial Analytics",
+      "ML Expense Prediction",
+      "Interactive Dashboard & Reports"
     ],
-    keyContribution: "Architected full-stack concept, interactive dashboard visualizations, responsive UI components, and transaction classification logic.",
-    githubUrl: "https://github.com/syamkumar9745",
-    badge: "AI Product Architecture"
+    keyContribution: "Integrated personal finance analytics, machine learning, visualization, and reporting into a single application.",
+    githubUrl: "https://github.com/syamkumar9745/FinTrack_AI",
+    badge: "AI / ML"
   },
   {
     id: "retail-bi-sql",
-    title: "Retail Sales Business Intelligence & SQL Analytics System",
+    title: "Retail Business Intelligence System",
     category: "Data Analytics / BI",
-    tagline: "Enterprise SQL analytical pipeline uncovering revenue drivers, store KPIs, and cohort retention.",
-    description: "A comprehensive business intelligence and SQL analytics system transforming raw retail transaction records into strategic executive insights.",
-    fullOverview: "Retail enterprises generate millions of row transactions across multiple store branches. This project executes complex SQL analytical queries (window functions, CTEs, rollups, cohort analyses) to evaluate store performance, customer lifetime value, seasonal purchasing trends, and stock turnover.",
+    tagline: "End-to-end SQL analytics system for retail sales, inventory, profitability, promotions, and customer behavior.",
+    description: "Business intelligence project transforming retail datasets into structured SQL analysis and business insights.",
+    fullOverview: "A retail analytics system covering sales, inventory, profitability, promotions, and customer behavior through structured SQL analysis.",
     highlights: [
-      "Constructed complex multi-table SQL queries utilizing CTEs, Window Functions (DENSE_RANK, LEAD/LAG, PARTITION BY), and aggregations",
-      "Identified top 20% revenue-generating customer cohorts driving 72% of total store profitability",
-      "Calculated Month-over-Month (MoM) revenue growth, customer retention rates, and average order values (AOV)",
-      "Extracted clear operational recommendations for inventory replenishment and markdown schedules"
+      "Analyzed sales, inventory, profitability, promotions, and customer behavior",
+      "Used joins, aggregations, CASE expressions, subqueries, CTEs, and window functions",
+      "Analyzed stockouts, overstock, replenishment, and promotion effectiveness",
+      "Translated analytical results into business decision support"
     ],
-    technologies: ["SQL", "MySQL", "PostgreSQL", "Database Design", "Excel", "Data Transformation"],
+    technologies: ["SQL", "MySQL", "Data Analysis", "Business Intelligence", "Data Modeling"],
     metrics: [
-      { label: "Records Analyzed", value: "100k+" },
-      { label: "Query Execution", value: "Optimized" },
-      { label: "KPI Accuracy", value: "100%" }
+      { label: "Data Domains", value: "5+" },
+      { label: "SQL", value: "Advanced" },
+      { label: "Project Type", value: "BI Analytics" }
     ],
     architectureSummary: [
-      "Relational Schema Design (Star/Snowflake schema)",
-      "Data Cleaning & Normalization",
-      "Analytical CTEs & Window Aggregations",
-      "Executive KPI Summary Generation"
+      "Retail Dataset Preparation",
+      "Relational Data Analysis",
+      "SQL Query Development",
+      "Business KPI Analysis"
     ],
-    keyContribution: "Formulated complete analytical SQL query suite, optimized database indexing for analytical queries, and synthesized key business findings into strategic summaries.",
-    githubUrl: "https://github.com/syamkumar9745",
-    badge: "SQL & Analytics"
+    keyContribution: "Built an end-to-end SQL analytics workflow for extracting retail business insights.",
+    githubUrl: "https://github.com/syamkumar9745/Retail_Business_Intelligence_System_SQL_Analytics",
+    badge: "SQL & BI"
   },
   {
-    id: "grocery-powerbi",
-    title: "Grocery Store Sales Analysis & Executive Dashboard",
-    category: "Data Analytics / BI",
-    tagline: "Interactive Power BI executive dashboard tracking inventory turnover, category margins, and regional sales.",
-    description: "An end-to-end Power BI business intelligence dashboard offering deep visibility into retail sales performance, product category margins, and customer purchasing patterns.",
-    fullOverview: "A data analytics project focused on designing intuitive, high-impact business intelligence dashboards. Cleaned and modeled grocery sales data, developed custom DAX measures, and created an interactive multi-page dashboard for store managers and regional directors.",
-    highlights: [
-      "Engineered customized DAX calculated measures (YTD Sales, Profit Margins, Rolling Averages)",
-      "Designed dynamic filterable dashboard views for Category Breakdown, Regional Store Heatmaps, and Payment Method Preferences",
-      "Identified high-margin impulse goods vs high-velocity low-margin staple items to optimize shelf placement",
-      "Built intuitive drill-through capabilities allowing drill-downs from national performance to individual SKU levels"
-    ],
-    technologies: ["Power BI", "DAX", "Data Modeling", "Excel", "Data Storytelling"],
-    metrics: [
-      { label: "Custom DAX Measures", value: "25+" },
-      { label: "Dashboard Views", value: "3 Pages" },
-      { label: "Insight Clarity", value: "Executive" }
-    ],
-    architectureSummary: [
-      "ETL Pipeline in Power Query",
-      "Star Schema Dimensional Modeling",
-      "DAX Measure Development",
-      "Interactive UI Layout & Visual Hierarchy"
-    ],
-    keyContribution: "Executed entire data modeling in Power Query, authored custom DAX calculations, and constructed user-friendly interactive report layouts.",
-    githubUrl: "https://github.com/syamkumar9745",
-    badge: "Power BI / BI"
-  },
-  {
-    id: "netflix-eda",
-    title: "Netflix Content Trends & Viewing Analytics",
+    id: "grocery-store-sales-analysis",
+    title: "Grocery Store Sales Analysis",
     category: "Data Science",
-    tagline: "Exploratory Data Analysis investigating content release velocity, genre distributions, and international expansion.",
-    description: "Comprehensive exploratory data analysis uncovering Netflix's global content strategy, duration distributions, rating shifts, and geographical production trends.",
-    fullOverview: "Analyzing thousands of Netflix titles to understand streaming platform content acquisition and original production strategies over the past decade. Utilized Python data science stack to clean messy metadata, parse multi-value genre lists, and visualize content evolution.",
+    tagline: "Python-based grocery sales analysis using data cleaning, visualization, and exploratory analysis.",
+    description: "Data analysis project focused on understanding grocery sales patterns and extracting business insights.",
+    fullOverview: "An exploratory data analysis project using Python to clean, analyze, visualize, and interpret grocery sales data.",
     highlights: [
-      "Processed and cleansed missing values in directorial, cast, and regional metadata",
-      "Discovered exponential growth in TV Show productions starting in 2016 alongside international expansion in Asian and European markets",
-      "Analyzed distribution of content ratings (TV-MA, TV-14) showing a strategic pivot toward mature audience demographics",
-      "Created publication-quality visualizations using Matplotlib and Seaborn with custom color palettes"
+      "Performed data cleaning and exploratory data analysis",
+      "Analyzed sales patterns and trends",
+      "Created visualizations to communicate analytical findings"
     ],
-    technologies: ["Python", "Pandas", "Matplotlib", "Seaborn", "NumPy", "Jupyter Notebook"],
+    technologies: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
     metrics: [
-      { label: "Titles Cleansed", value: "8,800+" },
-      { label: "Visualizations", value: "15+ Plots" },
-      { label: "Insights Derived", value: "10 Core Trends" }
+      { label: "Project Type", value: "Data Analysis" },
+      { label: "Core Tool", value: "Python" }
     ],
     architectureSummary: [
-      "Data Cleaning & Handling Nulls",
-      "String Tokenization & Genre Parsing",
-      "Univariate & Bivariate Statistical Analysis",
-      "Visual Data Storytelling"
+      "Data Cleaning",
+      "Exploratory Analysis",
+      "Statistical Visualization",
+      "Business Insights"
     ],
-    keyContribution: "Conducted statistical exploratory data analysis, handled complex nested strings, and generated structured visual reports illustrating platform content evolution.",
-    githubUrl: "https://github.com/syamkumar9745",
-    badge: "Data Science / EDA"
+    keyContribution: "Analyzed grocery sales data and converted raw records into structured analytical insights.",
+    githubUrl: "https://github.com/syamkumar9745/grocery-store-sales-analysis",
+    badge: "Data Analysis"
   },
   {
-    id: "student-performance",
-    title: "Student Academic Performance Statistical EDA",
+    id: "netflix-data-analysis",
+    title: "Netflix Data Analysis",
     category: "Data Science",
-    tagline: "Statistical analysis and multivariate regression uncovering factors influencing academic achievement.",
-    description: "An in-depth statistical exploratory data analysis examining demographic, socioeconomic, and educational variables affecting student exam performance.",
-    fullOverview: "Investigating the key determinants of educational outcomes using structured tabular data. Evaluated relationships between parental education levels, test preparation courses, lunch subsidies, and standardized math/reading/writing scores.",
+    tagline: "End-to-end Netflix data analysis using Python, Pandas, NumPy, Matplotlib, and Seaborn.",
+    description: "Data science project covering data cleaning, feature engineering, exploratory analysis, visualization, and business insights.",
+    fullOverview: "An end-to-end Netflix content data analysis project using the Python data science stack.",
     highlights: [
-      "Conducted hypothesis testing and correlation analysis across socioeconomic factors",
-      "Identified that completed test preparation courses accounted for a statistically significant 10-12% boost in overall test composite scores",
-      "Visualized score distributions and identified potential intervention targets to narrow achievement disparities",
-      "Built clean, reproducible Jupyter Notebook workflows with statistical summary tables"
+      "Performed data cleaning and preprocessing",
+      "Applied feature engineering to prepare analytical variables",
+      "Conducted exploratory data analysis and visualization",
+      "Generated business-oriented insights from Netflix content data"
     ],
-    technologies: ["Python", "Pandas", "Seaborn", "Scipy / Stats", "Data Storytelling"],
+    technologies: ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn"],
     metrics: [
-      { label: "Score Variance Explained", value: "High" },
-      { label: "Hypothesis Tests", value: "Validated" },
-      { label: "Code Quality", value: "Modular" }
+      { label: "Project Type", value: "EDA" },
+      { label: "Core Language", value: "Python" }
     ],
     architectureSummary: [
-      "Data Hygiene & Verification",
-      "Grouped Statistical Aggregations",
-      "Correlation Matrix & Distribution Plots",
-      "Actionable Policy Findings"
+      "Data Cleaning",
+      "Feature Engineering",
+      "Exploratory Data Analysis",
+      "Data Visualization"
     ],
-    keyContribution: "Executed thorough statistical hypothesis evaluations, generated multivariate correlation plots, and compiled data-driven educational insights.",
-    githubUrl: "https://github.com/syamkumar9745",
-    badge: "Statistical Analysis"
+    keyContribution: "Performed end-to-end exploratory analysis of Netflix content data using Python.",
+    githubUrl: "https://github.com/syamkumar9745/Netflix_Data_Analysis",
+    badge: "Data Science"
   }
 ];
 
@@ -459,3 +453,5 @@ export const PHILOSOPHY_STEPS = [
     ]
   }
 ];
+
+

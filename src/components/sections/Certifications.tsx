@@ -1,71 +1,84 @@
 import React from 'react';
+
 import { SectionHeader } from '../common/SectionHeader';
 import { GlassCard } from '../common/GlassCard';
 import { CERTIFICATIONS } from '../../data/portfolioData';
-import { Award, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
+
+import {
+  Award,
+  ShieldCheck,
+} from 'lucide-react';
 
 export const Certifications: React.FC = () => {
   return (
-    <section id="certifications" className="py-20 lg:py-28 bg-[#030712] relative">
+    <section
+      id="certifications"
+      className="py-20 lg:py-28 bg-[#030712] relative"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
         <SectionHeader
-          badge="Verified Accreditations"
+          badge="Certifications"
           badgeIcon={<Award className="w-3.5 h-3.5" />}
-          title="Professional Certifications"
-          subtitle="Validated certifications across Prompt Engineering, Machine Learning, Python Data Science, and core IT architectures."
+          title="Certifications & Credentials"
+          subtitle="Credentials supporting my focus across AI, machine learning, Python, and data science."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {CERTIFICATIONS.map((cert, index) => (
             <GlassCard
               key={index}
-              className="p-6 border-white/10 flex flex-col justify-between hover:border-indigo-500/50"
+              className="p-5 sm:p-6 border-white/10 hover:border-indigo-500/40 transition-colors"
               elevation="high"
             >
-              <div>
-                <div className="flex items-start justify-between gap-2 mb-4">
-                  <div className="w-10 h-10 rounded-xl bg-indigo-950/80 border border-indigo-500/40 text-indigo-400 flex items-center justify-center shadow-neon-indigo">
-                    <Award className="w-5 h-5" />
-                  </div>
-                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-semibold bg-emerald-950/80 text-emerald-400 border border-emerald-500/40 font-mono">
-                    <ShieldCheck className="w-3 h-3" />
-                    <span>Verified</span>
-                  </span>
+              {/* Header */}
+              <div className="flex items-start justify-between gap-3 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-indigo-950/80 border border-indigo-500/40 text-indigo-400 flex items-center justify-center">
+                  <Award className="w-5 h-5" />
                 </div>
 
-                <span className="text-[11px] font-bold uppercase tracking-wider text-cyan-400 block mb-1 font-mono">
-                  {cert.issuer}
+                <span className="inline-flex items-center gap-1 px-2 py-1 rounded-md text-[10px] font-semibold bg-emerald-950/80 text-emerald-400 border border-emerald-500/40 font-mono">
+                  <ShieldCheck className="w-3 h-3" />
+                  Verified
                 </span>
+              </div>
 
-                <h3 className="text-base font-bold text-white leading-snug tracking-tight mb-2">
+              {/* Certification */}
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-wider text-cyan-400 font-mono mb-1.5">
+                  {cert.issuer}
+                </p>
+
+                <h3 className="text-base font-bold text-white leading-snug tracking-tight">
                   {cert.title}
                 </h3>
 
-                <span className="inline-block px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-slate-900 text-slate-300 border border-white/10 mb-4">
+                <span className="inline-block mt-3 px-2 py-1 rounded-md text-[10px] font-mono font-medium bg-slate-900 text-slate-300 border border-white/10">
                   {cert.category}
                 </span>
               </div>
 
-              <div>
-                <div className="pt-3 border-t border-white/10">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-2 font-mono">
-                    Skills Validated:
-                  </span>
-                  <div className="flex flex-wrap gap-1">
-                    {cert.skillsCovered.map((skill, sIdx) => (
-                      <span
-                        key={sIdx}
-                        className="px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-black/40 text-slate-300 border border-white/5"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
+              {/* Skills */}
+              <div className="mt-5 pt-4 border-t border-white/10">
+                <p className="text-[10px] uppercase tracking-wider text-slate-500 font-mono mb-2">
+                  Covered Skills
+                </p>
+
+                <div className="flex flex-wrap gap-1.5">
+                  {cert.skillsCovered.map((skill, skillIndex) => (
+                    <span
+                      key={skillIndex}
+                      className="px-2 py-1 rounded-md text-[10px] font-mono font-medium bg-black/40 text-slate-300 border border-white/5"
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </div>
             </GlassCard>
           ))}
         </div>
+
       </div>
     </section>
   );
