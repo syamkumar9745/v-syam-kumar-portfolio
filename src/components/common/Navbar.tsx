@@ -60,6 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
       id: 'certifications',
     },
     { label: 'Philosophy', href: '#philosophy', id: 'philosophy' },
+    { label: 'Contact', href: '#contact', id: 'contact' },
   ];
 
   return (
@@ -115,7 +116,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden sm:flex items-center gap-2.5">
+          <div className="hidden lg:flex items-center gap-2.5">
             {onOpenResume && (
               <button
                 onClick={onOpenResume}
@@ -137,7 +138,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <div className="flex sm:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-xl bg-slate-900 border border-white/10 text-slate-300 hover:text-white focus:outline-none"
@@ -155,7 +156,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="sm:hidden fixed inset-x-0 top-[65px] p-4 bg-[#090d16]/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl transition-all">
+        <div className="lg:hidden fixed inset-x-0 top-[65px] p-4 bg-[#090d16]/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl transition-all">
           <div className="flex flex-col gap-1.5">
             {navLinks.map((link) => (
               <a

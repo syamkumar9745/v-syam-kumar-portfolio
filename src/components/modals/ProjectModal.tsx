@@ -128,12 +128,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         </div>
 
         {/* Modal Footer Actions */}
-        <div className="px-6 py-4 bg-[#0b1120] border-t border-white/10 flex items-center justify-between">
+        <div className="px-6 py-4 bg-[#0b1120] border-t border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
           <div className="text-xs text-slate-400">
             Engineered by <strong className="text-white">V. Syam Kumar</strong>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             {project.githubUrl && (
               <a
                 href={project.githubUrl}
@@ -144,6 +144,17 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
                 <Github className="w-3.5 h-3.5" />
                 <span>View on GitHub</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            )}
+            {project.liveDemoUrl && (
+              <a
+                href={project.liveDemoUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-slate-950 bg-cyan-400 hover:bg-cyan-300 transition-colors"
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                <span>Live Demo</span>
               </a>
             )}
             <button
