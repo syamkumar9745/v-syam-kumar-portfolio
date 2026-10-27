@@ -17,47 +17,47 @@ export const App: React.FC = () => {
   const [resumeModalOpen, setResumeModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#030712] text-slate-100 flex flex-col font-sans selection:bg-indigo-500 selection:text-white">
-      {/* Global 3D Neural Particle Background — spans the entire page */}
+    <div className="min-h-screen bg-[#111318] text-[#F5F0E6] flex flex-col font-sans selection:bg-[#C6A86B] selection:text-[#111318]">
+      {/* Global 3D Particle Background — Champagne Gold & Obsidian */}
       <Global3DBackground />
       
-      {/* Sticky Glass Navbar */}
+      {/* Translucent Obsidian Sticky Navbar with Gold Trim */}
       <Navbar onOpenResume={() => setResumeModalOpen(true)} />
 
-      {/* Main Content Flow */}
+      {/* Main Content Flow — Mixed Dark/Light Luxury Rhythm */}
       <main className="flex-1">
-        {/* 01: Hero with 3D Holographic AI Neural Core */}
+        {/* 01: Hero (Dark Midnight Obsidian) */}
         <Hero onOpenResume={() => setResumeModalOpen(true)} />
 
-        {/* 02: Impressive UI Roller (Systems, ML, DL, LLM, Full-Stack) */}
+        {/* 02: Marquee Divider (Graphite & Gold) */}
         <InfiniteMarquee />
 
-        {/* 03: Clear & Professional Personal Introduction & Education */}
+        {/* 03: About Section (Warm Champagne Ivory) */}
         <About />
 
-        {/* 04: Selected Engineering Projects & Case Studies */}
+        {/* 04: Projects Section (Dark Midnight Obsidian with Graphite Cards) */}
         <Projects />
 
-        {/* 05: Technical Skills Ecosystem & Search */}
+        {/* 05: Skills Section (Warm Champagne Ivory with Warm Stone Cards) */}
         <Skills />
 
-        {/* 06: Practical Experience & Internships */}
+        {/* 06: Experience Section (Warm Champagne Ivory with Gold Connector) */}
         <Experience />
 
-        {/* 07: Verified Professional Certifications */}
+        {/* 07: Certifications Section (Warm Stone / Ivory) */}
         <Certifications />
 
-        {/* 08: How I Build / Engineering Philosophy */}
+        {/* 08: Engineering Philosophy (Dark Midnight Obsidian) */}
         <Philosophy />
 
-        {/* 09: Direct Contact, Profiles & Message Dispatch */}
+        {/* 09: Contact Section (Dark Graphite & Obsidian with Emerald Call-to-Action) */}
         <Contact />
       </main>
 
-      {/* Footer */}
+      {/* Footer (Dark Midnight Obsidian) */}
       <Footer />
 
-      {/* Resume Viewer / Print Modal */}
+      {/* Resume Viewer / Print Modal (Bespoke Champagne Ivory Paper View) */}
       <ResumeModal
         isOpen={resumeModalOpen}
         onClose={() => setResumeModalOpen(false)}

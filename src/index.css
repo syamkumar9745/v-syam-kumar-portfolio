@@ -1,112 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  html {
-    color-scheme: dark;
-  }
-  
-  body {
-    background-color: #030712;
-    color: #f8fafc;
-    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  :root {
+    --color-obsidian: #111318;
+    --color-graphite: #242730;
+    --color-gold: #C6A86B;
+    --color-gold-warm: #E0C58E;
+    --color-ivory: #F5F0E6;
+    --color-stone: #D9D1C3;
+    --color-emerald: #176B55;
+    --color-emerald-deep: #104638;
+    --color-muted-grey: #9699A3;
   }
 
-  /* Custom sleek dark scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #030712;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: #1e293b;
-    border-radius: 9999px;
-    border: 2px solid #030712;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #4f46e5;
+  body {
+    background-color: #111318;
+    color: #F5F0E6;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-@layer utilities {
-  /* Dark Cybernetic Grid Pattern */
-  .bg-grid-pattern-dark {
-    background-size: 36px 36px;
-    background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  }
+/* Custom scrollbar in Midnight Obsidian & Champagne Gold */
+::-webkit-scrollbar {
+  width: 8px;
+}
 
-  .bg-dot-pattern-dark {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-    background-size: 24px 24px;
-  }
+::-webkit-scrollbar-track {
+  background: #111318;
+}
 
-  /* Radial Ambient Glows */
-  .glow-indigo-dark {
-    background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0) 70%);
-  }
+::-webkit-scrollbar-thumb {
+  background: #242730;
+  border-radius: 4px;
+  border: 1px solid rgba(198, 168, 107, 0.25);
+}
 
-  .glow-cyan-dark {
-    background: radial-gradient(circle at center, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0) 70%);
-  }
+::-webkit-scrollbar-thumb:hover {
+  background: #C6A86B;
+}
 
-  .glow-purple-dark {
-    background: radial-gradient(circle at center, rgba(168, 85, 247, 0.15) 0%, rgba(168, 85, 247, 0) 70%);
-  }
+/* Text Gradients */
+.gradient-text-gold {
+  background: linear-gradient(135deg, #F5F0E6 0%, #E0C58E 45%, #C6A86B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-  /* Dark Glassmorphic Panels */
-  .glass-panel-dark {
-    background: rgba(13, 21, 39, 0.65);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-  }
+.gradient-text-emerald {
+  background: linear-gradient(135deg, #F5F0E6 10%, #228B70 60%, #176B55 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-  .glass-panel-dark-elevated {
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.7), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
-  }
+.gradient-text-obsidian {
+  background: linear-gradient(135deg, #111318 0%, #242730 60%, #176B55 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-  /* Gradient Text Utility */
-  .gradient-text-indigo {
-    background: linear-gradient(135deg, #ffffff 30%, #818cf8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+.gradient-text-terracotta,
+.gradient-text-royal,
+.gradient-text-warm,
+.gradient-text-neon {
+  background: linear-gradient(135deg, #F5F0E6 0%, #E0C58E 45%, #C6A86B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-  .gradient-text-cyan {
-    background: linear-gradient(135deg, #ffffff 30%, #38bdf8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+/* Subtle architectural patterns */
+.luxury-grid-dark {
+  background-image: 
+    linear-gradient(to right, rgba(198, 168, 107, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(198, 168, 107, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
 
-  .gradient-text-neon {
-    background: linear-gradient(135deg, #818cf8 0%, #38bdf8 50%, #34d399 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+.luxury-grid-light {
+  background-image: 
+    linear-gradient(to right, rgba(17, 19, 24, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 19, 24, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
 
-  /* Smooth Marquee Animation */
-  @keyframes marquee {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
+/* Glass panel surfaces */
+.glass-obsidian {
+  background: rgba(36, 39, 48, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(198, 168, 107, 0.2);
+}
 
-  .animate-marquee {
-    animation: marquee 28s linear infinite;
-  }
+.glass-obsidian-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-  .animate-marquee:hover {
-    animation-play-state: paused;
-  }
+.glass-obsidian-hover:hover {
+  background: rgba(36, 39, 48, 0.9);
+  border-color: rgba(224, 197, 142, 0.45);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6), 0 0 20px -5px rgba(198, 168, 107, 0.2);
+}
+
+/* Light Section Cards */
+.ivory-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(217, 209, 195, 0.85);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+.ivory-card:hover {
+  border-color: rgba(198, 168, 107, 0.6);
+  box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.08), 0 0 15px -3px rgba(198, 168, 107, 0.15);
 }

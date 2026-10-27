@@ -1,172 +1,270 @@
 import React from 'react';
 import { SectionHeader } from '../common/SectionHeader';
-import { GlassCard } from '../common/GlassCard';
 import { PERSONAL_INFO } from '../../data/portfolioData';
-import { GraduationCap, Brain, Sparkles, Award, Calendar, MapPin, Cpu, Zap, ArrowUpRight, BookOpen, Layers } from 'lucide-react';
+import {
+  GraduationCap,
+  Brain,
+  Sparkles,
+  Calendar,
+  MapPin,
+  Database,
+  Code2,
+  Layers3,
+  ArrowUpRight,
+} from 'lucide-react';
 
 export const About: React.FC = () => {
   return (
-    <section id="about" className="py-20 lg:py-24 bg-[#040816] border-y border-white/10 relative">
-      {/* Background ambient neon glow */}
-      <div className="absolute top-1/2 left-0 w-80 h-80 bg-indigo-600/10 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-cyan-600/10 blur-[120px] rounded-full pointer-events-none" />
-
+    <section
+      id="about"
+      className="py-20 lg:py-28 bg-[#F5F0E6] text-[#111318] border-y border-[#D9D1C3] relative luxury-grid-light"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
         <SectionHeader
-          badge="Personal Introduction"
+          badge="About"
           badgeIcon={<Sparkles className="w-3.5 h-3.5" />}
-          title="Engineering Intelligence, Driven by Curiosity"
-          subtitle="A focused profile of technical competence, continuous evolution, and passion for production-grade AI architectures."
+          title="AI / ML Engineer"
+          subtitle="Building intelligent systems across Machine Learning, Generative AI, RAG, and data-driven applications."
+          theme="light"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* Left Column: Clear, Short, Professional Narrative & Continuous Learning */}
-          <div className="lg:col-span-7 flex flex-col justify-between">
-            <GlassCard className="p-6 sm:p-8 h-full flex flex-col justify-between" elevation="high">
-              <div>
-                <div className="flex items-center justify-between mb-5 pb-3 border-b border-white/10">
-                  <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight flex items-center gap-2.5">
-                    <Brain className="w-5 h-5 text-indigo-400" />
-                    <span>Profile & Core Focus</span>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+          {/* Core Profile */}
+          <div className="lg:col-span-7">
+            <div className="p-6 sm:p-8 h-full bg-white rounded-2xl border border-[#D9D1C3] shadow-ivory-card hover:border-[#C6A86B]/70 transition-all">
+
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 rounded-xl bg-[#FAF6EE] border border-[#C6A86B]/40 flex items-center justify-center">
+                  <Brain className="w-5 h-5 text-[#176B55]" />
+                </div>
+
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-[#C6A86B] font-mono font-bold">
+                    Core Profile
+                  </p>
+
+                  <h3 className="text-xl font-bold text-[#111318]">
+                    {PERSONAL_INFO.name}
                   </h3>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-emerald-950/80 text-emerald-400 border border-emerald-500/30">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    Continuous Learner
+                </div>
+              </div>
+
+              {/* Skill highlights */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+                <div className="p-4 rounded-xl bg-[#FAF6EE] border border-[#D9D1C3]/80 hover:border-[#C6A86B]/50 transition-colors">
+                  <Code2 className="w-4 h-4 text-[#C6A86B] mb-3" />
+
+                  <p className="text-sm font-bold text-[#111318]">
+                    Machine Learning
+                  </p>
+
+                  <p className="text-xs text-[#242730]/75 mt-1">
+                    Modeling, feature engineering & evaluation
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-[#FAF6EE] border border-[#D9D1C3]/80 hover:border-[#176B55]/50 transition-colors">
+                  <Sparkles className="w-4 h-4 text-[#176B55] mb-3" />
+
+                  <p className="text-sm font-bold text-[#111318]">
+                    Generative AI
+                  </p>
+
+                  <p className="text-xs text-[#242730]/75 mt-1">
+                    LLMs, prompting & AI workflows
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-[#FAF6EE] border border-[#D9D1C3]/80 hover:border-[#C6A86B]/50 transition-colors">
+                  <Layers3 className="w-4 h-4 text-[#C6A86B] mb-3" />
+
+                  <p className="text-sm font-bold text-[#111318]">
+                    RAG & Retrieval
+                  </p>
+
+                  <p className="text-xs text-[#242730]/75 mt-1">
+                    Chunking, embeddings & semantic search
+                  </p>
+                </div>
+
+                <div className="p-4 rounded-xl bg-[#FAF6EE] border border-[#D9D1C3]/80 hover:border-[#176B55]/50 transition-colors">
+                  <Database className="w-4 h-4 text-[#176B55] mb-3" />
+
+                  <p className="text-sm font-bold text-[#111318]">
+                    Data Analytics
+                  </p>
+
+                  <p className="text-xs text-[#242730]/75 mt-1">
+                    SQL, ETL, feature engineering & BI
+                  </p>
+                </div>
+
+              </div>
+
+              {/* Narrative */}
+              <div className="mt-6 space-y-3 text-sm text-[#242730]/90 leading-relaxed border-t border-[#D9D1C3] pt-5">
+                <p>
+                  I am a final-year Computer Science Engineering student specializing
+                  in Artificial Intelligence and Data Science at Jeppiaar University, Chennai.
+                </p>
+
+                <p>
+                  My engineering journey centers around making machine learning and
+                  Generative AI practically useful. I build systems that connect raw data,
+                  predictive models, vector retrieval pipelines, and interactive web interfaces
+                  into end-to-end intelligent software.
+                </p>
+
+                <p>
+                  Whether implementing multi-agent research tools, evaluation-driven RAG systems,
+                  or high-accuracy prediction models, I focus on clean architecture, verifiable performance,
+                  and production quality.
+                </p>
+              </div>
+
+              {/* Meta information */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-6 pt-5 border-t border-[#D9D1C3]">
+                <div>
+                  <span className="text-[10px] uppercase font-mono tracking-wider text-[#9699A3]">
+                    Location
                   </span>
-                </div>
-
-                {/* Concise, impactful narrative */}
-                <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-                  <p>
-                    I am <strong className="text-white font-semibold">{PERSONAL_INFO.name}</strong>, an AI Engineer and final-year Computer Science undergraduate (AI & Data Science) at Jeppiaar University, Chennai.
-                  </p>
-                  <p>
-                    Passionate about architecting end-to-end intelligent systems — from foundational data modeling and feature engineering to LLM reasoning, retrieval pipelines (RAG), and scalable full-stack integration.
-                  </p>
-                  <p>
-                    I view engineering as an iterative science: actively expanding from machine learning models into full-stack development, continually refining prompt architectures, and mastering emerging enterprise AI paradigms.
+                  <p className="text-xs font-semibold text-[#111318] mt-0.5 flex items-center gap-1">
+                    <MapPin className="w-3.5 h-3.5 text-[#176B55]" />
+                    {PERSONAL_INFO.location}
                   </p>
                 </div>
 
-                {/* Standout Personality Quote Box */}
-                <div className="mt-5 p-4 rounded-2xl bg-gradient-to-r from-indigo-950/70 via-slate-900 to-cyan-950/50 border border-indigo-500/30 flex items-center gap-3.5 shadow-md">
-                  <div className="w-9 h-9 rounded-xl bg-indigo-900/60 border border-indigo-400/40 flex items-center justify-center flex-shrink-0 text-cyan-300">
-                    <Sparkles className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] uppercase font-mono font-bold tracking-wider text-slate-400 block">Personal Philosophy</span>
-                    <p className="text-xs sm:text-sm font-semibold text-white tracking-tight italic">
-                      "Driven by the thrill of turning 'impossible' into reality"
-                    </p>
-                  </div>
+                <div>
+                  <span className="text-[10px] uppercase font-mono tracking-wider text-[#9699A3]">
+                    Status
+                  </span>
+                  <p className="text-xs font-semibold text-[#176B55] mt-0.5 flex items-center gap-1">
+                    <span className="w-2 h-2 rounded-full bg-[#176B55]" />
+                    Open to Roles
+                  </p>
+                </div>
+
+                <div className="col-span-2 sm:col-span-1">
+                  <span className="text-[10px] uppercase font-mono tracking-wider text-[#9699A3]">
+                    Graduation
+                  </span>
+                  <p className="text-xs font-semibold text-[#111318] mt-0.5 flex items-center gap-1">
+                    <Calendar className="w-3.5 h-3.5 text-[#C6A86B]" />
+                    Expected 2027
+                  </p>
                 </div>
               </div>
 
-              {/* Continuous Learning Pillars */}
-              <div className="mt-8 pt-5 border-t border-white/10">
-                <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 block mb-3">
-                  Ongoing Learning & Craftsmanship
-                </span>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                  <div className="p-3 rounded-xl bg-[#0b1120] border border-white/10">
-                    <div className="text-xs font-bold text-white flex items-center gap-1.5 mb-1">
-                      <Zap className="w-3.5 h-3.5 text-cyan-400" />
-                      <span>RAG & Retrieval</span>
-                    </div>
-                    <p className="text-[11px] text-slate-400 leading-snug">
-                      Domain vector indexing, chunking & semantic search.
-                    </p>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-[#0b1120] border border-white/10">
-                    <div className="text-xs font-bold text-white flex items-center gap-1.5 mb-1">
-                      <Layers className="w-3.5 h-3.5 text-indigo-400" />
-                      <span>Full-Stack Skills</span>
-                    </div>
-                    <p className="text-[11px] text-slate-400 leading-snug">
-                      Pairing ML backends with responsive React UI.
-                    </p>
-                  </div>
-
-                  <div className="p-3 rounded-xl bg-[#0b1120] border border-white/10">
-                    <div className="text-xs font-bold text-white flex items-center gap-1.5 mb-1">
-                      <BookOpen className="w-3.5 h-3.5 text-purple-400" />
-                      <span>Daily Problem Solving</span>
-                    </div>
-                    <p className="text-[11px] text-slate-400 leading-snug">
-                      Consistent algorithmic practice on LeetCode.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </GlassCard>
+            </div>
           </div>
 
-          {/* Right Column: Verified Academic Foundation */}
-          <div className="lg:col-span-5 flex flex-col justify-between">
-            <GlassCard className="p-6 sm:p-8 border-indigo-500/30 h-full flex flex-col justify-between" elevation="high">
-              <div>
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-2xl bg-indigo-950/80 border border-indigo-500/40 text-indigo-400 flex items-center justify-center shadow-neon-indigo">
-                    <GraduationCap className="w-6 h-6" />
-                  </div>
-                  <span className="px-3.5 py-1 rounded-full text-xs font-mono font-bold bg-emerald-950/80 text-emerald-400 border border-emerald-500/40">
-                    {PERSONAL_INFO.education.cgpa} CGPA
-                  </span>
+          {/* Education & Academic Rigor */}
+          <div className="lg:col-span-5 space-y-6">
+
+            {/* University Card */}
+            <div className="p-6 sm:p-7 bg-white rounded-2xl border border-[#D9D1C3] shadow-ivory-card hover:border-[#C6A86B]/70 transition-all">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 rounded-xl bg-[#FAF6EE] border border-[#C6A86B]/40 flex items-center justify-center">
+                  <GraduationCap className="w-5 h-5 text-[#C6A86B]" />
                 </div>
 
-                <div className="space-y-1 mb-4">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-indigo-400 font-mono">
-                    Academic Foundation
-                  </span>
-                  <h4 className="text-lg font-bold text-white leading-snug">
-                    {PERSONAL_INFO.education.degree}
-                  </h4>
-                  <p className="text-sm font-medium text-cyan-300">
-                    Specialization: {PERSONAL_INFO.education.specialization}
+                <div>
+                  <p className="text-xs uppercase tracking-wider text-[#C6A86B] font-mono font-bold">
+                    Formal Education
                   </p>
-                </div>
 
-                <div className="space-y-2 py-3 border-y border-white/10 text-xs text-slate-300">
-                  <div className="flex items-center gap-2">
-                    <MapPin className="w-3.5 h-3.5 text-indigo-400" />
-                    <span className="font-semibold text-white">{PERSONAL_INFO.education.institution}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-3.5 h-3.5 text-indigo-400" />
-                    <span>{PERSONAL_INFO.education.status}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Award className="w-3.5 h-3.5 text-indigo-400" />
-                    <span>Graduation Target: June 2027</span>
-                  </div>
-                </div>
-
-                <div className="mt-4">
-                  <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-2 font-mono">
-                    Key Academic Rigour
-                  </span>
-                  <ul className="space-y-2 text-xs text-slate-300">
-                    {PERSONAL_INFO.education.highlights.slice(0, 3).map((point, index) => (
-                      <li key={index} className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 flex-shrink-0"></span>
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <h4 className="text-base font-bold text-[#111318]">
+                    B.Tech in CSE (AI & Data Science)
+                  </h4>
                 </div>
               </div>
 
-              <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between text-xs text-slate-400 font-mono">
-                <span>Verified Credentials</span>
-                <a href="#contact" className="text-cyan-400 hover:text-cyan-300 flex items-center gap-1 font-semibold">
-                  <span>Connect</span>
+              <div className="space-y-3 mt-4">
+                <div className="flex justify-between items-start text-xs border-b border-[#D9D1C3]/80 pb-2.5">
+                  <span className="text-[#9699A3]">Institution</span>
+                  <span className="text-right font-semibold text-[#111318]">
+                    Jeppiaar University, Chennai
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-start text-xs border-b border-[#D9D1C3]/80 pb-2.5">
+                  <span className="text-[#9699A3]">Academic Standing</span>
+                  <span className="text-right font-bold text-[#176B55] font-mono">
+                    8.00 CGPA
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-start text-xs border-b border-[#D9D1C3]/80 pb-2.5">
+                  <span className="text-[#9699A3]">Duration</span>
+                  <span className="text-right text-[#242730]">
+                    2023 — 2027
+                  </span>
+                </div>
+
+                <div className="flex justify-between items-start text-xs pb-1">
+                  <span className="text-[#9699A3]">Focus</span>
+                  <span className="text-right text-[#242730]">
+                    Machine Learning, Neural Networks, Deep Learning, Algorithms
+                  </span>
+                </div>
+              </div>
+
+              {/* Coursework pill list */}
+              <div className="mt-5 pt-4 border-t border-[#D9D1C3]">
+                <p className="text-[10px] uppercase tracking-wider text-[#9699A3] font-mono mb-2.5">
+                  Key Coursework
+                </p>
+
+                <div className="flex flex-wrap gap-1.5">
+                  {[
+                    'Machine Learning',
+                    'Deep Learning',
+                    'Natural Language Processing',
+                    'Data Structures & Algorithms',
+                    'Database Management Systems',
+                    'Big Data Analytics',
+                    'Probability & Statistics',
+                  ].map((course, idx) => (
+                    <span
+                      key={idx}
+                      className="px-2.5 py-1 rounded-md text-[10px] font-mono font-medium text-[#111318] bg-[#FAF6EE] border border-[#D9D1C3]"
+                    >
+                      {course}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Certifications Quick Highlight */}
+            <div className="p-6 bg-white rounded-2xl border border-[#D9D1C3] shadow-ivory-card hover:border-[#C6A86B]/70 transition-all">
+              <div className="flex items-center justify-between mb-3">
+                <h4 className="text-sm font-bold text-[#111318] tracking-tight">
+                  Verified Industry Credentials
+                </h4>
+
+                <a
+                  href="#certifications"
+                  className="text-xs text-[#176B55] hover:text-[#104638] font-semibold inline-flex items-center gap-1 font-mono"
+                >
+                  View All
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
               </div>
-            </GlassCard>
+
+              <p className="text-xs text-[#242730]/80 leading-relaxed">
+                Credentials from Google, IBM, DeepLearning.AI, and HackerRank
+                demonstrating continuous learning and verified skills in ML, Python, and SQL.
+              </p>
+            </div>
+
           </div>
+
         </div>
+
       </div>
     </section>
   );

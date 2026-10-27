@@ -11,22 +11,22 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
   if (!project) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-black/80 backdrop-blur-xl overflow-y-auto">
-      <div className="relative w-full max-w-3xl bg-[#090d16] text-white rounded-3xl shadow-2xl border border-white/15 overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-black/85 backdrop-blur-xl overflow-y-auto">
+      <div className="relative w-full max-w-3xl bg-[#111318] text-[#F5F0E6] rounded-3xl shadow-2xl border border-[#C6A86B]/30 overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-200">
         
         {/* Modal Header Bar */}
-        <div className="px-6 py-5 bg-[#0b1120] border-b border-white/10 flex items-center justify-between">
+        <div className="px-6 py-5 bg-[#181B22] border-b border-[#C6A86B]/20 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-indigo-950/80 text-indigo-300 border border-indigo-500/40">
+            <span className="px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#242730] text-[#E0C58E] border border-[#C6A86B]/40">
               {project.category}
             </span>
-            <span className="text-xs font-semibold text-slate-400 font-mono">
-              Engineering Case Study Deep Dive
+            <span className="text-xs font-semibold text-[#9699A3] font-mono">
+              Engineering Deep Dive
             </span>
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 flex items-center justify-center text-slate-300 hover:text-white transition-colors"
+            className="w-8 h-8 rounded-full bg-[#242730] hover:bg-[#2E323E] border border-[#C6A86B]/30 flex items-center justify-center text-[#F5F0E6] hover:text-[#E0C58E] transition-colors cursor-pointer"
             aria-label="Close modal"
           >
             <X className="w-4 h-4" />
@@ -37,10 +37,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
         <div className="p-6 sm:p-8 space-y-6 max-h-[75vh] overflow-y-auto">
           
           <div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight leading-tight">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#F5F0E6] tracking-tight leading-tight">
               {project.title}
             </h3>
-            <p className="text-base text-cyan-400 font-medium mt-1">
+            <p className="text-base text-[#C6A86B] font-medium mt-1 font-mono">
               {project.tagline}
             </p>
           </div>
@@ -49,9 +49,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
           {project.metrics && (
             <div className="grid grid-cols-3 gap-3">
               {project.metrics.map((metric, i) => (
-                <div key={i} className="p-3 rounded-xl bg-[#0d1527] border border-white/10 text-center">
-                  <div className="text-xs text-slate-400 font-medium">{metric.label}</div>
-                  <div className="text-lg sm:text-xl font-bold text-white mt-0.5">{metric.value}</div>
+                <div key={i} className="p-3 rounded-xl bg-[#181B22] border border-[#C6A86B]/20 text-center">
+                  <div className="text-xs text-[#9699A3] font-medium font-mono">{metric.label}</div>
+                  <div className="text-lg sm:text-xl font-bold text-[#F5F0E6] mt-0.5">{metric.value}</div>
                 </div>
               ))}
             </div>
@@ -59,23 +59,23 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
           {/* Overview Narrative */}
           <div className="space-y-2">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#C6A86B] font-mono">
               Problem Statement & System Objectives
             </h4>
-            <p className="text-sm text-slate-300 leading-relaxed">
+            <p className="text-sm text-[#D9D1C3]/90 leading-relaxed">
               {project.fullOverview}
             </p>
           </div>
 
           {/* Key Contributions & Highlights */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#C6A86B] font-mono">
               Key Engineering Highlights & Implementation
             </h4>
             <div className="space-y-2">
               {project.highlights.map((highlight, index) => (
-                <div key={index} className="flex items-start gap-2.5 p-3 rounded-xl bg-[#0d1527] border border-white/10 text-xs text-slate-300">
-                  <CheckCircle2 className="w-4 h-4 text-cyan-400 flex-shrink-0 mt-0.5" />
+                <div key={index} className="flex items-start gap-2.5 p-3 rounded-xl bg-[#181B22] border border-[#242730] text-xs text-[#D9D1C3]">
+                  <CheckCircle2 className="w-4 h-4 text-[#176B55] flex-shrink-0 mt-0.5" />
                   <span className="leading-relaxed">{highlight}</span>
                 </div>
               ))}
@@ -84,41 +84,34 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
           {/* Architecture Pipeline */}
           <div className="space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400 font-mono">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#C6A86B] font-mono">
               Technical Pipeline Flow
             </h4>
             <div className="flex flex-wrap items-center gap-2">
               {project.architectureSummary.map((step, i) => (
                 <div key={i} className="flex items-center gap-2">
-                  <span className="px-3 py-1.5 rounded-lg bg-slate-850 bg-slate-900 border border-white/10 text-xs font-mono font-medium text-indigo-300">
+                  <span className="px-3 py-1.5 rounded-lg bg-[#181B22] border border-[#C6A86B]/25 text-xs font-mono font-medium text-[#F5F0E6]">
                     {i + 1}. {step}
                   </span>
                   {i < project.architectureSummary.length - 1 && (
-                    <span className="text-slate-500 text-xs">➔</span>
+                    <span className="text-[#C6A86B] text-xs">→</span>
                   )}
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Key Contribution Quote */}
-          <div className="p-4 rounded-2xl bg-indigo-950/50 border border-indigo-500/40 shadow-neon-indigo">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-indigo-300 block mb-1 font-mono">
-              Personal Engineering Contribution
-            </span>
-            <p className="text-xs text-slate-200 font-medium leading-relaxed">
-              "{project.keyContribution}"
-            </p>
-          </div>
-
-          {/* Technology Stack */}
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-2 font-mono">
-              Technology Stack
-            </span>
+          {/* Technologies Used */}
+          <div className="space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-[#C6A86B] font-mono">
+              Technologies & Frameworks
+            </h4>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((tech, i) => (
-                <span key={i} className="px-3 py-1 rounded-lg text-xs font-mono font-medium bg-slate-800 text-slate-200 border border-white/10">
+                <span
+                  key={i}
+                  className="px-3 py-1.5 rounded-lg bg-[#181B22] border border-[#242730] text-xs font-mono font-semibold text-[#D9D1C3]"
+                >
                   {tech}
                 </span>
               ))}
@@ -127,32 +120,39 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
 
         </div>
 
-        {/* Modal Footer Actions */}
-        <div className="px-6 py-4 bg-[#0b1120] border-t border-white/10 flex items-center justify-between">
-          <div className="text-xs text-slate-400">
-            Engineered by <strong className="text-white">V. Syam Kumar</strong>
-          </div>
-
+        {/* Modal Footer Bar */}
+        <div className="px-6 py-4 bg-[#181B22] border-t border-[#C6A86B]/20 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
+            {project.liveDemoUrl && (
+              <a
+                href={project.liveDemoUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#176B55] hover:bg-[#104638] text-white text-xs font-semibold shadow-emerald transition-all border border-[#176B55]/50 font-mono"
+              >
+                <span>Live Interactive Demo</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            )}
             {project.githubUrl && (
               <a
                 href={project.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-500 transition-all shadow-neon-indigo"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-[#242730] hover:bg-[#2E323E] border border-[#C6A86B]/30 text-[#F5F0E6] hover:text-[#E0C58E] text-xs font-semibold transition-all font-mono"
               >
-                <Github className="w-3.5 h-3.5" />
-                <span>View on GitHub</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <Github className="w-4 h-4 text-[#C6A86B]" />
+                <span>GitHub Repository</span>
               </a>
             )}
-            <button
-              onClick={onClose}
-              className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 bg-slate-800 hover:bg-slate-700 transition-colors"
-            >
-              Close
-            </button>
           </div>
+
+          <button
+            onClick={onClose}
+            className="px-4 py-2 text-xs font-semibold text-[#9699A3] hover:text-[#F5F0E6] transition-colors cursor-pointer"
+          >
+            Close
+          </button>
         </div>
 
       </div>
