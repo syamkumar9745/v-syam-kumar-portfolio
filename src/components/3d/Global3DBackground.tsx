@@ -1,12 +1,21 @@
-import React, { useRef, useMemo, useEffect } from 'react';
+import React, { useRef, useMemo, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
-// Floating Neural Particle Field spanning 3D space
+// Floating Neural Particle Field in Champagne Gold and Obsidian
 const ParticleSwarm: React.FC = () => {
   const count = 120;
   const meshRef = useRef<THREE.Points>(null);
   const linesRef = useRef<THREE.LineSegments>(null);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+    const handler = (e: MediaQueryListEvent) => setPrefersReducedMotion(e.matches);
+    mediaQuery.addEventListener('change', handler);
+    return () => mediaQuery.removeEventListener('change', handler);
+  }, []);
 
   // Generate 3D coordinates for particles
   const [positions, originalPositions, velocities] = useMemo(() => {
@@ -27,9 +36,9 @@ const ParticleSwarm: React.FC = () => {
       orig[i * 3 + 1] = y;
       orig[i * 3 + 2] = z;
 
-      vel[i * 3] = (Math.random() - 0.5) * 0.008;
-      vel[i * 3 + 1] = (Math.random() - 0.5) * 0.008;
-      vel[i * 3 + 2] = (Math.random() - 0.5) * 0.004;
+      vel[i * 3] = (Math.random() - 0.5) * 0.005;
+      vel[i * 3 + 1] = (Math.random() - 0.5) * 0.005;
+      vel[i * 3 + 2] = (Math.random() - 0.5) * 0.003;
     }
     return [pos, orig, vel];
   }, [count]);
@@ -38,6 +47,8 @@ const ParticleSwarm: React.FC = () => {
   const linePositions = useMemo(() => new Float32Array(maxLines * 6), [maxLines]);
 
   useFrame((state) => {
+    if (prefersReducedMotion) return;
+
     const t = state.clock.getElapsedTime();
     const mouse = state.mouse;
 
@@ -48,16 +59,13 @@ const ParticleSwarm: React.FC = () => {
       let lineIdx = 0;
 
       for (let i = 0; i < count; i++) {
-        // Subtle drift motion
         arr[i * 3] += velocities[i * 3];
         arr[i * 3 + 1] += velocities[i * 3 + 1];
         arr[i * 3 + 2] += velocities[i * 3 + 2];
 
-        // Boundary wrap
         if (Math.abs(arr[i * 3] - originalPositions[i * 3]) > 2) velocities[i * 3] *= -1;
         if (Math.abs(arr[i * 3 + 1] - originalPositions[i * 3 + 1]) > 2) velocities[i * 3 + 1] *= -1;
 
-        // Connect nearby particles with glowing lines
         for (let j = i + 1; j < count; j++) {
           if (lineIdx < maxLines * 6) {
             const dx = arr[i * 3] - arr[j * 3];
@@ -80,9 +88,8 @@ const ParticleSwarm: React.FC = () => {
 
       posAttr.needsUpdate = true;
 
-      // Parallax rotation based on mouse & scroll
-      meshRef.current.rotation.y = THREE.MathUtils.lerp(meshRef.current.rotation.y, mouse.x * 0.2 + t * 0.02, 0.05);
-      meshRef.current.rotation.x = THREE.MathUtils.lerp(meshRef.current.rotation.x, -mouse.y * 0.15, 0.05);
+      meshRef.current.rotation.y = THREE.MathUtils.lerp(meshRef.current.rotation.y, mouse.x * 0.15 + t * 0.015, 0.04);
+      meshRef.current.rotation.x = THREE.MathUtils.lerp(meshRef.current.rotation.x, -mouse.y * 0.12, 0.04);
     }
 
     if (linesRef.current) {
@@ -95,7 +102,7 @@ const ParticleSwarm: React.FC = () => {
 
   return (
     <group>
-      {/* 3D Points / Neural Nodes */}
+      {/* 3D Points / Champagne Gold Neural Nodes */}
       <points ref={meshRef}>
         <bufferGeometry>
           <bufferAttribute
@@ -106,15 +113,15 @@ const ParticleSwarm: React.FC = () => {
           />
         </bufferGeometry>
         <pointsMaterial
-          size={0.12}
-          color="#818cf8"
+          size={0.11}
+          color="#C6A86B"
           transparent
-          opacity={0.7}
+          opacity={0.8}
           blending={THREE.AdditiveBlending}
         />
       </points>
 
-      {/* Connecting 3D Neural Filaments */}
+      {/* Connecting 3D Warm Gold Filaments */}
       <lineSegments ref={linesRef}>
         <bufferGeometry>
           <bufferAttribute
@@ -125,9 +132,9 @@ const ParticleSwarm: React.FC = () => {
           />
         </bufferGeometry>
         <lineBasicMaterial
-          color="#6366f1"
+          color="#E0C58E"
           transparent
-          opacity={0.22}
+          opacity={0.25}
           blending={THREE.AdditiveBlending}
         />
       </lineSegments>
@@ -137,7 +144,7 @@ const ParticleSwarm: React.FC = () => {
 
 export const Global3DBackground: React.FC = () => {
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
       <Canvas
         camera={{ position: [0, 0, 9], fov: 60 }}
         gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}

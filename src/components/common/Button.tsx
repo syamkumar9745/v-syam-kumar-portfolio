@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'neon';
+  variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'neon' | 'emerald' | 'light-outline';
   size?: 'sm' | 'md' | 'lg';
   icon?: React.ReactNode;
   iconPosition?: 'left' | 'right';
@@ -23,7 +23,7 @@ export const Button: React.FC<ButtonProps> = ({
   className = '',
   ...props
 }) => {
-  const baseStyles = "inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-[#030712] disabled:opacity-50 disabled:cursor-not-allowed select-none group cursor-pointer";
+  const baseStyles = "inline-flex items-center justify-center font-medium rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#C6A86B] focus:ring-offset-2 focus:ring-offset-[#111318] disabled:opacity-50 disabled:cursor-not-allowed select-none group cursor-pointer";
 
   const sizeStyles = {
     sm: "text-xs px-3.5 py-2 gap-1.5",
@@ -32,11 +32,13 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const variantStyles = {
-    primary: "bg-indigo-600 text-white hover:bg-indigo-500 shadow-neon-indigo hover:shadow-lg hover:-translate-y-0.5 border border-indigo-400/40",
-    neon: "bg-cyan-500 text-slate-950 font-bold hover:bg-cyan-400 shadow-neon-cyan hover:shadow-lg hover:-translate-y-0.5 border border-cyan-300/40",
-    secondary: "bg-slate-800/90 text-white hover:bg-slate-700 shadow-md hover:shadow-lg hover:-translate-y-0.5 border border-white/10",
-    outline: "bg-slate-900/60 backdrop-blur-md text-slate-200 border border-white/15 hover:border-indigo-400 hover:bg-indigo-500/10 hover:text-white shadow-sm hover:-translate-y-0.5",
-    ghost: "text-slate-300 hover:text-white hover:bg-white/10"
+    primary: "bg-[#C6A86B] text-[#111318] font-bold hover:bg-[#E0C58E] shadow-gold hover:shadow-gold hover:-translate-y-0.5 border border-[#E0C58E]/60",
+    emerald: "bg-[#176B55] text-white font-semibold hover:bg-[#104638] shadow-emerald hover:shadow-emerald hover:-translate-y-0.5 border border-[#176B55]/50",
+    neon: "bg-[#176B55] text-white font-bold hover:bg-[#104638] shadow-emerald hover:-translate-y-0.5 border border-[#228B70]/50",
+    secondary: "bg-[#242730] text-[#F5F0E6] hover:bg-[#2E323E] shadow-md hover:shadow-lg hover:-translate-y-0.5 border border-[#C6A86B]/25",
+    outline: "bg-[#181B22]/80 backdrop-blur-md text-[#F5F0E6] border border-[#C6A86B]/35 hover:border-[#C6A86B] hover:bg-[#C6A86B]/15 hover:text-[#E0C58E] shadow-sm hover:-translate-y-0.5",
+    'light-outline': "bg-white text-[#111318] border border-[#D9D1C3] hover:border-[#C6A86B] hover:bg-[#FAF6EE] shadow-sm hover:-translate-y-0.5",
+    ghost: "text-[#9699A3] hover:text-[#F5F0E6] hover:bg-white/5"
   };
 
   const combinedClasses = `${baseStyles} ${sizeStyles[size]} ${variantStyles[variant]} ${className}`;

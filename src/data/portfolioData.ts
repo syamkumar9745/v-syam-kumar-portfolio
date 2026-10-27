@@ -63,6 +63,7 @@ export const PROJECTS: Project[] = [
   {
     id: "stock-research-agent",
     title: "Stock Research Agent",
+    liveDemoUrl: "https://stock-research-agent-o33l.onrender.com",
     category: "AI / ML",
     tagline: "AI agent project focused on automating stock research and financial information analysis.",
     description: "AI agent designed to support structured stock research through automated information analysis.",
@@ -75,7 +76,7 @@ export const PROJECTS: Project[] = [
     technologies: ["Python", "AI Agents", "LLMs", "Financial Research"],
     metrics: [
       { label: "Project Type", value: "AI Agent" },
-      { label: "Status", value: "GitHub" }
+      { label: "Status", value: "Live" }
     ],
     architectureSummary: [
       "Research Input",
@@ -89,7 +90,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "fintrack-ai",
-    title: "FinTrack AI ? Personal Finance Analytics",
+    title: "FinTrack AI — Personal Finance Analytics",
     category: "AI / ML",
     tagline: "AI-powered personal finance platform combining analytics, machine learning, dashboards, and financial reporting.",
     description: "Python-based personal finance analytics platform for transaction management, financial insights, visualization, reporting, and expense prediction.",
@@ -453,5 +454,3 @@ export const PHILOSOPHY_STEPS = [
     ]
   }
 ];
-
-

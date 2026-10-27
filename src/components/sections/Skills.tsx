@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { SectionHeader } from '../common/SectionHeader';
-import { GlassCard } from '../common/GlassCard';
 import { SKILL_CATEGORIES } from '../../data/portfolioData';
 
 import {
@@ -11,7 +10,6 @@ import {
   BarChart3,
   Terminal,
   Search,
-  Sparkles,
   Activity,
 } from 'lucide-react';
 
@@ -23,17 +21,17 @@ export const Skills: React.FC = () => {
   const getCategoryIcon = (iconName: string) => {
     switch (iconName) {
       case 'Code2':
-        return <Code2 className="w-5 h-5 text-indigo-400" />;
+        return <Code2 className="w-5 h-5 text-[#C6A86B]" />;
       case 'Brain':
-        return <Brain className="w-5 h-5 text-purple-400" />;
+        return <Brain className="w-5 h-5 text-[#176B55]" />;
       case 'Activity':
-        return <Activity className="w-5 h-5 text-cyan-400" />;
+        return <Activity className="w-5 h-5 text-[#C6A86B]" />;
       case 'Database':
-        return <Database className="w-5 h-5 text-sky-400" />;
+        return <Database className="w-5 h-5 text-[#176B55]" />;
       case 'BarChart3':
-        return <BarChart3 className="w-5 h-5 text-amber-400" />;
+        return <BarChart3 className="w-5 h-5 text-[#C6A86B]" />;
       default:
-        return <Terminal className="w-5 h-5 text-emerald-400" />;
+        return <Terminal className="w-5 h-5 text-[#E0C58E]" />;
     }
   };
 
@@ -61,144 +59,99 @@ export const Skills: React.FC = () => {
       return matchesFilter && category.skills.length > 0;
     });
 
+  const categories = [
+    'All',
+    ...SKILL_CATEGORIES.map((c) => c.title),
+  ];
+
   return (
     <section
       id="skills"
-      className="py-20 lg:py-28 bg-[#030712] relative"
+      className="py-20 lg:py-28 bg-[#F5F0E6] text-[#111318] border-y border-[#D9D1C3] relative luxury-grid-light"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         <SectionHeader
-          badge="Technical Skills"
+          badge="Capabilities"
           badgeIcon={<Wrench className="w-3.5 h-3.5" />}
-          title="Skills & Technologies"
-          subtitle="A focused technical stack across AI, machine learning, data, and application development."
+          title="Technical Skills & Stack"
+          subtitle="The languages, libraries, models, databases, and tools I use to build AI applications."
+          theme="light"
         />
 
-        {/* Search + Filters */}
-        <div className="max-w-3xl mx-auto mb-10 space-y-4">
+        {/* Search & Category Filter Controls */}
+        <div className="max-w-4xl mx-auto mb-12 space-y-4">
           <div className="relative">
-            <Search className="w-4 h-4 text-slate-500 absolute left-4 top-1/2 -translate-y-1/2" />
-
+            <Search className="w-4 h-4 text-[#176B55] absolute left-4 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search Python, ML, RAG, SQL, Power BI, React..."
-              className="w-full pl-11 pr-12 py-3 rounded-2xl bg-[#0b1120] border border-white/15 text-sm text-white focus:outline-none focus:border-indigo-500 shadow-glass-dark placeholder:text-slate-500"
+              placeholder="Filter skills (e.g., Python, PyTorch, LangChain, SQL, RAG)..."
+              className="w-full pl-11 pr-4 py-3 rounded-2xl bg-white border border-[#D9D1C3] text-sm text-[#111318] placeholder-[#9699A3] focus:outline-none focus:border-[#C6A86B] focus:ring-1 focus:ring-[#C6A86B] transition-all shadow-sm"
             />
-
-            {searchQuery && (
-              <button
-                onClick={() => setSearchQuery('')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-semibold text-slate-400 hover:text-white"
-              >
-                Clear
-              </button>
-            )}
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            {['All', ...SKILL_CATEGORIES.map((category) => category.title)].map(
-              (title) => {
-                const isActive = activeCategoryFilter === title;
-
-                return (
-                  <button
-                    key={title}
-                    onClick={() => setActiveCategoryFilter(title)}
-                    className={`px-3.5 py-1.5 rounded-lg text-xs font-medium transition-colors cursor-pointer ${
-                      isActive
-                        ? 'bg-indigo-600 text-white shadow-neon-indigo'
-                        : 'bg-slate-900/80 text-slate-400 hover:text-white border border-white/10'
-                    }`}
-                  >
-                    {title}
-                  </button>
-                );
-              }
-            )}
+          <div className="flex flex-wrap items-center justify-center gap-1.5 pt-1">
+            {categories.map((cat) => {
+              const isActive = activeCategoryFilter === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategoryFilter(cat)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                    isActive
+                      ? 'bg-[#111318] text-[#F5F0E6] shadow-sm border border-[#111318] font-bold'
+                      : 'bg-white text-[#242730] hover:text-[#111318] hover:bg-[#FAF6EE] border border-[#D9D1C3]'
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Skill Category Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredCategories.map((category, index) => (
-            <GlassCard
+            <div
               key={index}
-              className="p-5 sm:p-6 border-white/10 hover:border-indigo-500/40 transition-colors"
-              elevation="high"
+              className="p-6 bg-white rounded-2xl border border-[#D9D1C3] hover:border-[#C6A86B]/70 transition-all shadow-ivory-card flex flex-col"
             >
-              {/* Category Header */}
-              <div className="flex items-center justify-between gap-3 mb-5">
+              <div className="flex items-center gap-3 mb-5 pb-3 border-b border-[#D9D1C3]">
+                <div className="w-10 h-10 rounded-xl bg-[#FAF6EE] border border-[#C6A86B]/40 flex items-center justify-center flex-shrink-0">
+                  {getCategoryIcon(category.icon)}
+                </div>
                 <div>
-                  <h3 className="text-base font-bold text-white tracking-tight">
+                  <h3 className="text-base font-bold text-[#111318]">
                     {category.title}
                   </h3>
-
-                  <p className="text-xs text-slate-400 mt-1">
-                    {category.subtitle}
-                  </p>
-                </div>
-
-                <div className="w-10 h-10 rounded-xl bg-slate-900 border border-white/10 flex items-center justify-center shadow-lg flex-shrink-0">
-                  {getCategoryIcon(category.icon)}
+                  <span className="text-[10px] font-mono text-[#9699A3]">
+                    {category.skills.length} competencies
+                  </span>
                 </div>
               </div>
 
-              {/* Skill Tags */}
-              <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIndex) => (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-auto">
+                {category.skills.map((skill, sIdx) => (
                   <div
-                    key={skillIndex}
-                    className="px-3 py-1.5 rounded-xl bg-[#0b1120]/80 border border-white/10 hover:border-indigo-500/40 transition-colors"
+                    key={sIdx}
+                    className="p-2.5 rounded-xl bg-[#FAF6EE] border border-[#D9D1C3] hover:border-[#C6A86B]/60 transition-all flex items-center justify-between group"
                   >
-                    <span className="text-xs font-semibold text-white">
+                    <span className="text-xs font-semibold text-[#111318] group-hover:text-[#176B55] truncate">
                       {skill.name}
                     </span>
-
                     {skill.tag && (
-                      <span className="block text-[10px] text-slate-500 mt-0.5 leading-tight">
+                      <span className="text-[9px] font-mono text-[#104638] bg-emerald-50 px-1.5 py-0.5 rounded border border-[#176B55]/30 flex-shrink-0 ml-1">
                         {skill.tag}
                       </span>
                     )}
                   </div>
                 ))}
               </div>
-
-              {/* Card Footer */}
-              <div className="mt-5 pt-3 border-t border-white/10 flex items-center justify-between">
-                <span className="text-[11px] text-slate-500 font-mono">
-                  {category.skills.length} skills
-                </span>
-
-                <span className="text-[11px] text-cyan-400 font-semibold flex items-center gap-1">
-                  <Sparkles className="w-3 h-3" />
-                  Technical Focus
-                </span>
-              </div>
-            </GlassCard>
+            </div>
           ))}
         </div>
-
-        {/* Empty Search State */}
-        {filteredCategories.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-sm text-slate-400">
-              No matching skills found.
-            </p>
-
-            <button
-              onClick={() => {
-                setSearchQuery('');
-                setActiveCategoryFilter('All');
-              }}
-              className="mt-3 text-sm text-indigo-400 hover:text-indigo-300"
-            >
-              Reset filters
-            </button>
-          </div>
-        )}
       </div>
     </section>
   );

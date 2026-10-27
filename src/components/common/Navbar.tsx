@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight, Sparkles, FileText } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 
@@ -44,7 +44,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -54,11 +53,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
     { label: 'Projects', href: '#projects', id: 'projects' },
     { label: 'Skills', href: '#skills', id: 'skills' },
     { label: 'Experience', href: '#experience', id: 'experience' },
-    {
-      label: 'Certifications',
-      href: '#certifications',
-      id: 'certifications',
-    },
+    { label: 'Certifications', href: '#certifications', id: 'certifications' },
     { label: 'Philosophy', href: '#philosophy', id: 'philosophy' },
     { label: 'Contact', href: '#contact', id: 'contact' },
   ];
@@ -67,7 +62,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#030712]/85 backdrop-blur-xl border-b border-white/10 shadow-2xl py-3'
+          ? 'bg-[#111318]/92 backdrop-blur-xl border-b border-[#C6A86B]/20 shadow-2xl py-3'
           : 'bg-transparent py-5'
       }`}
     >
@@ -78,24 +73,24 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
             href="#home"
             className="flex items-center gap-3 group focus:outline-none"
           >
-            <div className="w-10 h-10 rounded-xl bg-indigo-600/90 text-white flex items-center justify-center font-bold text-sm tracking-wider shadow-neon-indigo group-hover:bg-indigo-500 transition-colors border border-indigo-400/40">
+            <div className="w-10 h-10 rounded-xl bg-[#242730] text-[#E0C58E] flex items-center justify-center font-bold text-sm tracking-wider shadow-gold-sm group-hover:border-[#C6A86B] transition-colors border border-[#C6A86B]/40">
               VSK
             </div>
 
             <div className="flex flex-col">
-              <span className="font-bold text-sm tracking-tight text-white leading-none group-hover:text-indigo-400 transition-colors">
+              <span className="font-bold text-sm tracking-tight text-[#F5F0E6] leading-none group-hover:text-[#E0C58E] transition-colors">
                 {PERSONAL_INFO.name}
               </span>
 
-              <span className="text-[11px] text-slate-400 font-medium tracking-tight mt-0.5 flex items-center gap-1.5 font-mono">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                AI Engineer • GenAI • ML
+              <span className="text-[11px] text-[#9699A3] font-medium tracking-tight mt-0.5 flex items-center gap-1.5 font-mono">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#176B55] animate-pulse" />
+                AI Engineer · GenAI · ML
               </span>
             </div>
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 bg-[#0b1120]/80 p-1.5 rounded-full border border-white/10 backdrop-blur-md shadow-inner-glow">
+          <nav className="hidden lg:flex items-center gap-1 bg-[#181B22]/90 p-1.5 rounded-full border border-[#C6A86B]/20 backdrop-blur-md shadow-glass-warm">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
 
@@ -105,8 +100,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
                   href={link.href}
                   className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
                     isActive
-                      ? 'bg-indigo-600 text-white shadow-neon-indigo font-semibold'
-                      : 'text-slate-300 hover:text-white hover:bg-white/5'
+                      ? 'bg-[#C6A86B] text-[#111318] shadow-gold border border-[#E0C58E]/40 font-bold'
+                      : 'text-[#9699A3] hover:text-[#F5F0E6] hover:bg-white/5'
                   }`}
                 >
                   {link.label}
@@ -120,18 +115,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
             {onOpenResume && (
               <button
                 onClick={onOpenResume}
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-200 hover:text-white bg-slate-900/80 hover:bg-slate-800 border border-white/15 hover:border-indigo-400/50 transition-all cursor-pointer font-mono"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-[#F5F0E6] hover:text-[#E0C58E] bg-[#242730]/90 hover:bg-[#2E323E] border border-[#C6A86B]/30 hover:border-[#C6A86B]/70 transition-all cursor-pointer font-mono shadow-sm"
               >
-                <FileText className="w-3.5 h-3.5 text-indigo-400" />
+                <FileText className="w-3.5 h-3.5 text-[#C6A86B]" />
                 <span>Resume</span>
               </button>
             )}
 
             <a
               href="#contact"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-500 shadow-neon-indigo transition-all hover:-translate-y-0.5 cursor-pointer border border-indigo-400/50 font-mono"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold text-white bg-[#176B55] hover:bg-[#104638] shadow-emerald transition-all hover:-translate-y-0.5 cursor-pointer border border-[#176B55]/50 font-mono"
             >
-              <Sparkles className="w-3.5 h-3.5 text-cyan-300" />
+              <Sparkles className="w-3.5 h-3.5 text-[#E0C58E]" />
               <span>Let's Connect</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
@@ -141,13 +136,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
           <div className="flex lg:hidden items-center gap-2">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl bg-slate-900 border border-white/10 text-slate-300 hover:text-white focus:outline-none"
+              className="p-2 rounded-xl bg-[#242730] border border-[#C6A86B]/30 text-[#F5F0E6] hover:text-white focus:outline-none"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? (
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5 text-[#C6A86B]" />
               ) : (
-                <Menu className="w-5 h-5" />
+                <Menu className="w-5 h-5 text-[#C6A86B]" />
               )}
             </button>
           </div>
@@ -156,7 +151,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[65px] p-4 bg-[#090d16]/95 backdrop-blur-2xl border-b border-white/10 shadow-2xl transition-all">
+        <div className="lg:hidden fixed inset-x-0 top-[65px] p-4 bg-[#111318]/98 backdrop-blur-2xl border-b border-[#C6A86B]/25 shadow-2xl transition-all">
           <div className="flex flex-col gap-1.5">
             {navLinks.map((link) => (
               <a
@@ -165,24 +160,24 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
                 onClick={() => setMobileMenuOpen(false)}
                 className={`px-4 py-2.5 rounded-xl text-sm font-medium transition-colors ${
                   activeSection === link.id
-                    ? 'bg-indigo-600/30 text-indigo-300 font-semibold border border-indigo-500/40'
-                    : 'text-slate-300 hover:bg-white/5'
+                    ? 'bg-[#C6A86B]/20 text-[#E0C58E] font-semibold border border-[#C6A86B]/40'
+                    : 'text-[#9699A3] hover:text-[#F5F0E6] hover:bg-white/5'
                 }`}
               >
                 {link.label}
               </a>
             ))}
 
-            <div className="pt-3 border-t border-white/10 mt-2 flex flex-col gap-2">
+            <div className="pt-3 border-t border-[#C6A86B]/20 mt-2 flex flex-col gap-2">
               {onOpenResume && (
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
                     onOpenResume();
                   }}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-slate-200 bg-slate-800 hover:bg-slate-700"
+                  className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-[#F5F0E6] bg-[#242730] hover:bg-[#2E323E] border border-[#C6A86B]/30"
                 >
-                  <FileText className="w-4 h-4 text-indigo-400" />
+                  <FileText className="w-4 h-4 text-[#C6A86B]" />
                   <span>View Resume</span>
                 </button>
               )}
@@ -190,7 +185,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResume }) => {
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-500 shadow-neon-indigo"
+                className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium text-white bg-[#176B55] hover:bg-[#104638] shadow-emerald border border-[#176B55]/50"
               >
                 <span>Get in Touch</span>
                 <ArrowUpRight className="w-4 h-4" />

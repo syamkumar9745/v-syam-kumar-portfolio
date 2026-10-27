@@ -61,13 +61,13 @@ export const TiltCard: React.FC<TiltCardProps> = ({
     >
       {children}
 
-      {/* Dynamic 3D Specular Light Flare */}
+      {/* Dynamic 3D Warm Ivory Specular Light Flare */}
       {glareEffect && (
         <div
           className="absolute inset-0 rounded-2xl pointer-events-none transition-opacity duration-300 overflow-hidden"
           style={{
             opacity: glarePosition.opacity,
-            background: `radial-gradient(circle at ${glarePosition.x}% ${glarePosition.y}%, rgba(255,255,255,0.2) 0%, transparent 65%)`
+            background: `radial-gradient(circle at ${glarePosition.x}% ${glarePosition.y}%, rgba(224, 197, 142, 0.22) 0%, transparent 65%)`
           }}
         />
       )}
